@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyles from './styles/global'
+import {Main, Section, Sticky} from './styles/index'
+import { FirstAndSecond } from './components/FirstAndSecond/index';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles/>
+      {/*Main comporta todos os containers animados.
+      Possui +/- 16x o tamanho da tela por conta da grande quantidade de scroll  */}
+      <Main style={{height:'1610vh'}}>
+        {/*cada section representa uma animação */}
+        <Section style= {{height:'72.7%' }}>
+          {/*O conteúdo do first aparece primeiro, mas o second é o seu pai, ja que fica ao redor dele */}
+          <FirstAndSecond>
+
+          </FirstAndSecond>
+        </Section>
+
+        <Section style= {{height:'9.7%'}}>
+          <Sticky className="third"/>
+         
+        </Section>
+
+        <Section style= {{height:'10.1%'}}>
+          <Sticky className="fourth"/>
+        </Section>
+      </Main>
+    </>
   );
 }
 
